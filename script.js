@@ -16,11 +16,12 @@ function loadMessage(text){
     message.appendChild(document.createTextNode(text));
     // message.innerText = text;
     let button = document.createElement('button');
-    button.setAttribute('onClick','removeName("'+id+'")');
+    button.setAttribute('onClick','removeMessage("'+id+'")');
     button.innerText = "Remove"
     ul.appendChild(message);
     ul.appendChild(button);
     document.getElementById("messages").appendChild(ul);
+    clearInputMessage();
 }
 
 function additem(){
@@ -31,7 +32,7 @@ function giveId(){
     return 'item' + i++;
 }
 
-function removeName(itemid){
+function removeMessage(itemid){
     var item = document.getElementById(itemid);
     item.parentElement.removeChild(item);
 }

@@ -23,6 +23,19 @@ div.blocktext{
     width: 30em
 }
 
+button{
+    color: #494949;
+    text-transform: uppercase;
+    background: #ffffff;
+    padding: 10px;
+    border: 4px solid #494949;
+    border-radius: 6px;
+    display: inline-block;
+}
+
+textarea{
+    margin-bottom: 20px;
+}
 p{
     text-align: center;
     background-color: lightgrey;
@@ -31,23 +44,42 @@ p{
     padding: 50px;
     margin: 50px;
 }
+#messages button{
+    position: absolute;
+    right: 15px
+}
 
 div.container {
     text-align: center;
+    padding: 20px;
 }
 div.message-list {
     text-align: center;
 }
-div.buttom {
-    text-align: center;
-}
 
+.message-list{
+    padding: 20px;
+    position: relative;
+    border: 2px solid rgb(75, 53, 173) ;
+    box-sizing: border-box;
+    display: inline-block;
+    width: 500px;
+    position: absolute;
+    left: 42%;
+    margin-top: 45px;
+    margin-left: -150px;
+    display:block;
+    padding:10px;
+}
 messages.ul {
     width: 300px;
     position: absolute;
     left: 50%;
     margin-top: 25px;
     margin-left: -150px;
+    float:left;
+    display:block;
+    padding:10px;
   }
 
 li {
@@ -55,7 +87,9 @@ li {
     display: block;
     border: 3px solid rgb(71, 140, 244);
     margin-bottom: 20px;
+    margin-right: 40px;
     padding: 10px;
     text-align: center;
     text-transform: uppercase;
+    display: inline-block;
   }

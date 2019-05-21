@@ -9,30 +9,31 @@ function initilize(){
 }
 
 function loadMessage(text){
+    let ul = document.createElement("ul")
+    let id = giveId();
+    ul.setAttribute("id",id);
     let message = document.createElement("LI");
-    let a = giveId();
-    console.log(a);
-    message.setAttribute('id',a);
-    message.innerText = text;
+    message.appendChild(document.createTextNode(text));
+    // message.innerText = text;
     let button = document.createElement('button');
-    button.appendChild(document.createTextNode("remove"));
-    message.appendChild(button);
-    document.getElementById("messages").appendChild(message);
-    button.setAttribute('onClick','removeName(id)');
+    button.setAttribute('onClick','removeName("'+id+'")');
+    button.innerText = "Remove"
+    ul.appendChild(message);
+    ul.appendChild(button);
+    document.getElementById("messages").appendChild(ul);
 }
 
 function additem(){
     let message = document.createElement("LI");
 }
-
+let i=0;
 function giveId(){
-    let i=0;
-    return i++;
+    return 'item' + i++;
 }
 
 function removeName(itemid){
     var item = document.getElementById(itemid);
-    item.parentElement.parentElement.removeChild();
+    item.parentElement.removeChild(item);
 }
 
 function clearInputMessage() {

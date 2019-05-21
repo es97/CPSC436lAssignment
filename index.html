@@ -8,8 +8,10 @@
     </head>
     <body onload="initilize()">
         <div class="navigation">
-                <a class="active" href="#home">Home</a>
-                <a href="about.html">About</a>
+            <ul>
+                <li><a class="active" href="#home">Home</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
         </div>
         <div class="container">
             <from >
@@ -20,10 +22,8 @@
             </from>
         </div>
         <div class="message-list">
-            <ul id="messages">
+            <ul class="list" id="messages">
             </ul>
-        </div>
-        <div class="buttom">
             <input type="button" value="Clear All" id="clearAllButton" onclick="clearAllMessage()">
         </div>
     </body>

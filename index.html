@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Message List</title>
+        <h1>Message List</h1>
+        <link href="style.css" rel="stylesheet" type="text/css">
+        <script type="text/javascript" src="script.js"></script>
+    </head>
+    <body onload="initilize()">
+        <div class="navigation">
+                <a class="active" href="#home">Home</a>
+                <a href="about.html">About</a>
+        </div>
+        <div class="container">
+            <from >
+                <h4><strong>Messages want to add</strong><br></h4>
+                <textarea rows="10" cols="80" id="messagebox" name="message" placeholder="Enter message here... (max 150 characters)" maxlength="150"></textarea><br>
+                <input type="button" value="Add" id="addButton" onclick="loadMessage(document.getElementById('messagebox').value)">
+                <input type="button" value="Clear" id="clearButton" onclick="clearInputMessage()">
+            </from>
+        </div>
+        <div class="message-list">
+            <ul id="messages">
+            </ul>
+        </div>
+        <div class="buttom">
+            <input type="button" value="Clear All" id="clearAllButton" onclick="clearAllMessage()">
+        </div>
+    </body>
+</html>

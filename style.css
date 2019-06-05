@@ -10,6 +10,11 @@ body{
 h4{
     color: rgb(90, 64, 8);
 }
+
+h3{
+    color: rgb(43, 153, 135);
+}
+
 a{
     color: rgb(112, 121, 84);
     margin: 5px 10px;

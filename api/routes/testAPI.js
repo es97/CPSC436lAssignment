@@ -1,22 +1,30 @@
 var express = require('express');
 var router = express.Router();
 
-const initialMessage = {"list":[
-    {"Message": "Welcome to sfsf dfdsfs", "Detail":""},
-    {"Message": "First message here", "Detail":""},
-    {"Message": "Second message here", "Detail":""},
-]}
+const initialMessage = [
+    {"message": "Welcome to sfsf dfdsfs", "detail":""},
+    {"message": "First message here", "detail":""},
+    {"message": "Second message here", "detail":""},
+]
 
 router.get('/', function(req, res, next) {
     res.setHeader('Content-Type', 'application/json');
-    res.send(initialMessage);
+    res.send(JSON.stringify(initialMessage));
 });
 
 router.post('/', function(req, res, next) {
     const newMessage = req.body;
-    initialMessage.list.push(newMessage);
+    initialMessage.push(newMessage);
     res.setHeader('Content-Type', 'application/json');
-    res.send(newMessage);
+    res.send(JSON.stringify(newMessage));
+});
+
+router.delete('/', function(req, res, next) {
+    messageToDelete = initialMessage.slice()
+    for(let i in messageToDelete){
+        initialMessage.pop()
+    }
+    res.json(messageToDelete);
 });
 
 

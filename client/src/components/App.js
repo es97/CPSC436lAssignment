@@ -1,5 +1,4 @@
 import React from 'react';
-// import HomePage from "../pages/home";
 import MessageList from "../components/MessageList";
 
 class App extends React.Component{
@@ -8,10 +7,11 @@ class App extends React.Component{
 		this.state = { apiResponse: "" };
 	}
 
-	callAPI() {
+	callAPI = async() => {
 		fetch("/testAPI")
 			.then(res => res.text())
-			.then(res => this.setState({ apiResponse: res }));
+			.then(res => this.setState({ apiResponse: res }))
+			.catch(err => console.log(err));
 	}
 
 	componentDidMount() {

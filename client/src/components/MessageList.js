@@ -5,11 +5,12 @@ import "./style.css"
 
 class MessageList extends React.Component {
 
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
     this.inputMessage = React.createRef();
     this.inputDetail = React.createRef();
-  }
+    this.state = {list: []};
+	}
 
   MessageText(message, detail){
     return <li onClick={() => this.props.showDetail(message, detail)} className="fullMessage">{message}</li>
@@ -20,6 +21,17 @@ class MessageList extends React.Component {
     this.inputMessage.current.value ="";
     this.inputDetail.current.value ="";
   }
+
+  callAPI= async() => {
+		fetch("/testAPI")
+			.then(res => res.json())
+			.then(res => this.setState({ apiResponse: res.json()}))
+			.catch(err => console.log(err));
+	}
+
+	componentDidMount() {
+		this.callAPI();
+	}
 
 	render() {
       const list = Object.values(this.props.list).map((input) =>

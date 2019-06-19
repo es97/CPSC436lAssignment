@@ -1,37 +1,19 @@
 import React from 'react';
+import { BrowserRouter as Router,Route} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import MessageList from "../components/MessageList";
+import Welcome from "../components/Welcome";
+// import Page1 from './page1'
 
-class App extends React.Component{
-	constructor(props) {
-		super(props);
-		this.state = { apiResponse: "" };
-	}
-
-	callAPI = async() => {
-		fetch("/testAPI")
-			.then(res => res.text())
-			.then(res => this.setState({ apiResponse: res }))
-			.catch(err => console.log(err));
-	}
-
-	componentDidMount() {
-		this.callAPI();
-	}
-
-	render(){
-		return (
+const App = () => {   //this is how you make a functional component
+	return (
+		<Router>
 			<div>
-				<div><MessageList/></div>
-				<p className="App-intro">{this.state.apiResponse}</p>
+				<Route path="/" component={Welcome} />
+				<Route path= "/MessageTool" component={MessageList} />
 			</div>
-		);
-	}
+		</Router>
+	);
 }
-
-// const App = () => {   //this is how you make a functional component
-// 	return (
-// 		<div><MessageList/></div>
-// 	);
-// }
 
 export default App;

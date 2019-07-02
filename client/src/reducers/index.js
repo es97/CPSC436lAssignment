@@ -6,7 +6,7 @@ import {ADD_MESSAGE_SUCCESS, ADD_MESSAGE_FAILURE} from "../actions/index"
 // function addMessage(message, index, detail=""){
 // 	if(index === undefined){
 // 		index = ++initialIndex
-// 	}
+// 	}`
 // 	return {
 // 		message: message,
 // 		index: index,

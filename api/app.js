@@ -12,6 +12,14 @@ var testAPIRouter = require("./routes/testAPI");
 
 var app = express();
 
+// MongoDB
+const url = 'mongodb+srv://es97:199711278@cluster0-zkuds.mongodb.net/test?retryWrites=true&w=majority'
+mongoose.connect(url, {useNewUrlParser: true});
+var db = mongoose.connection;
+
+db.once('open', () => console.log('connected to the database'));
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');

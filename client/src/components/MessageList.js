@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import {fetchMessages,showDetail, addMessage,closeDetail,deleteAllMessages} from "../actions/index"
+import {fetchMessages,showDetail,deleteSingle,addMessage,closeDetail,deleteAllMessages} from "../actions/index"
 import "./style.css"
 
 class MessageList extends React.Component {
@@ -10,19 +10,19 @@ class MessageList extends React.Component {
     this.inputDetail = React.createRef();
     this.state = {
       list: [],
-      messageToAdd:""
+      messageToAdd:"",
+      index:""
     };
   }
 
-  // MessageText(message, detail){
-  //   return <li onClick={() => this.props.showDetail(message, detail)} className="fullMessage">{message}</li>
-  // }
   MessageText(message){
-    return <li onClick={() => this.props.showDetail(message.message)} className="fullMessage">{message.message}</li>
+    console.log("HAHAHAHA");
+    console.log(message);
+    console.log(message._id);
+    return <li onClick={() => this.props.deleteSingle(message._id)} className="fullMessage">{message.message}</li>
   }
 
   submit= () =>{
-    // this.props.addMessage(this.inputMessage.current.value, this.inputDetail.current.value)
     this.props.addMessage(this.inputMessage.current.value)
     this.setState({messageToAdd:""})
     this.inputMessage.current.value ="";
@@ -35,7 +35,7 @@ class MessageList extends React.Component {
 
 	render() {
       const list = Object.values(this.props.list).map((message) =>
-      <ul id="messagesList">
+      <ul key= {message.id} id="messagesList">
         {this.MessageText(message)}
       </ul>
       );
@@ -67,7 +67,6 @@ class MessageList extends React.Component {
 
 
 const mapStateToProps = (state) => {
-  // return {list: state.list, el: state.el}
   return{
     list:state.messages,
     showDetail:state.showDetail
@@ -80,7 +79,8 @@ const mapDispatchToProps =  dispatch => {
     fetchMessages:() => dispatch(fetchMessages()),
     addMessage: (message) => dispatch(addMessage(message)),
     closeDetail:() => dispatch(closeDetail('')),
-    deleteAllMessages:() => dispatch(deleteAllMessages())
+    deleteAllMessages:() => dispatch(deleteAllMessages()),
+    deleteSingle:(id) => dispatch(deleteSingle(id))
   }
 };
 

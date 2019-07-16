@@ -13,7 +13,8 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "concurrently \"cd backend && node server.js\" \"cd client && npm start\""
+    "start": "node index.js",
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "repository": {
     "type": "git",

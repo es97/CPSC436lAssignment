@@ -9,8 +9,8 @@ const App = () => {   //this is how you make a functional component
 	return (
 		<Router>
 			<div>
-				<Route path="/" component={Welcome} />
-				<Route path= "/MessageTool" component={MessageList} />
+				{/* <Route path="/" component={Welcome} /> */}
+				<Route path= "/" component={MessageList} />
 			</div>
 		</Router>
 	);

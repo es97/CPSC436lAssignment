@@ -21,7 +21,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "node app.js",
+    "start": "node bin/www",
     "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "repository": {

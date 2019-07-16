@@ -41,7 +41,7 @@ app.use(function(req, res, next) {
 });
 
 app.get('*', (request, response) => {
-	response.sendFile(path.join(__dirname, 'public', 'index.html'));
+	response.sendFile(path.join(__dirname, 'public', 'testAPI.html'));
 });
 
 // error handler

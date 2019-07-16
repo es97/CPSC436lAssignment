@@ -11,7 +11,7 @@ var usersRouter = require('./routes/users');
 var testAPIRouter = require("./routes/testAPI");
 
 var app = express();
-app.use(express.static(__dirname, 'client/build'));
+app.use(express.static(path.join(__dirname, 'client/build')));
 
 // MongoDB
 const url = 'mongodb+srv://es97:199711278@cluster0-zkuds.mongodb.net/test?retryWrites=true&w=majority'
@@ -31,6 +31,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 // app.use(express.static(path.join(__dirname, 'public')));
+
+app.get('/*', function(req, res) {
+  res.sendFile(path.join(__dirname, 'client/build'));
+})
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

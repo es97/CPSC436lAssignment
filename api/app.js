@@ -11,6 +11,7 @@ var usersRouter = require('./routes/users');
 var testAPIRouter = require("./routes/testAPI");
 
 var app = express();
+app.use(express.static(__dirname, 'client/build'));
 
 // MongoDB
 const url = 'mongodb+srv://es97:199711278@cluster0-zkuds.mongodb.net/test?retryWrites=true&w=majority'
@@ -27,14 +28,14 @@ app.set('view engine', 'jade');
 app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.static(__dirname, 'client/build'));
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+// app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/testAPI', testAPIRouter);
+app.use(express.static(path.resolve(__dirname, '../client/build')));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
